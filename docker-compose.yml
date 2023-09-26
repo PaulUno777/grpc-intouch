@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    container_name: kmx-intouch-grpc
+    image: unoteck/kmx-intouch-grpc
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 50000:50000
+      - 58880:50000

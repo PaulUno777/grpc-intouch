@@ -18,7 +18,7 @@ const packageDef = loadSync("payments.proto", {
     oneofs: true
 });
 const grpcObject = loadPackageDefinition(packageDef);
-const paymentPackage = grpcObject.paymentPackage;
+const paymentPackage = grpcObject.intouch_package;
 
 const server = new Server();
 

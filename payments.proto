@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package paymentPackage;
+package intouch_package;
 
 service Payment {
   rpc getAccountBalance(voidNoParam) returns (amount);
