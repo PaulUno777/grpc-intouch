@@ -30,15 +30,13 @@ pipeline {
         }
 
         stage('Log into Dockerhub') {
-          environment {
-            docker_credentials = credentials('paulin_docker')
-            DOCKER_USER = docker_credentials.username
-            DOCKER_PASSWORD = docker_credentials.password
-          }
+
           steps {
-            sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
-          }
+            withCredentials([usernamePassword(credentialsId: 'paulin_docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+              sh 'docker login -u $USERNAME -p $PASSWORD'
+            }
         }
+      }
 
       }
     }
@@ -62,6 +60,5 @@ pipeline {
         sh 'docker container logs kmx-compliance-service'
       }
     }
-
   }
 }
