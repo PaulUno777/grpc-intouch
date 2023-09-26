@@ -25,7 +25,7 @@ pipeline {
       parallel {
         stage('Build app') {
           steps {
-            sh 'docker build -t unoteck/kmx-compliance-service .'
+            sh 'docker build -t unoteck/kmx-intouch-grpc .'
           }
         }
 
